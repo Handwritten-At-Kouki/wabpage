@@ -1,6 +1,7 @@
 # モデルの読込
 # 保存したjsonファイルとhdf5ファイルを読み込む。モデルを学習に使うにはcompileが必要。
 from keras.models import model_from_json
+import numpy as np
 import cv2
 
 # JSON形式のデータを読み込んでモデルとして復元。学習で使うにはまたコンパイルが必要なので注意。
@@ -12,10 +13,7 @@ model = model_from_json(json_string)
 model.load_weights('param.hdf5')
 print('Loaded the model.')
 
-def predict_digit(filename):
-  # 自分で用意した手書きの画像ファイルを読み込む
-  img = cv2.imread(filename)
-  plt.imshow(img)
+def predict_digit(img):
 
   # 画像データを学習済みデータに合わせる
   # グレースケールに変換
