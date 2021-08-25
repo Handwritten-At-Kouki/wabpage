@@ -1,9 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<form action="/result" method="post" enctype="multipart/form-data">
-  <input type="file" name="image" accept="image/png, image/jpeg, image/jpg">
-  <button type="submit">submit</button>
+<form
+class="ui action input"
+action="/upload"
+method="post"
+enctype="multipart/form-data"
+onsubmit="onloading()"
+>
+<input type="file" name="image" required="required"　accept="image/png, image/jpeg">
+<button type="submit" class="ui teal basic button">submit</button>
 </form>
 
 {% endblock %}
